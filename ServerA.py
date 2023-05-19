@@ -133,7 +133,7 @@ def AliceBit():
     alice_ready = True
     # wait for Bob to health check localhost:5001/health
     print("Alice is ready")
-    bob_health = requests.get("http://localhost:5001/health")
+    bob_health = requests.get("https://bob-ir8f.onrender.com/health")
     print(bob_health.status_code)
     if bob_health.status_code != 200:
         return jsonify({"error": "Bob is not ready"}), 400
@@ -154,7 +154,7 @@ def start():
     ) = Alice_instance.send()
     # send to server B and wait for a response
     print(f"public_data={public_data}")
-    response = requests.post("http://localhost:5001/calculate", json=public_data)
+    response = requests.post("https://bob-ir8f.onrender.com/calculate", json=public_data)
     rst_from_bob = response.json()
     decrypted_result = Alice_instance.secureResult(rst_from_bob["cB"])
     print(f"decrypted_result={decrypted_result}")
@@ -164,13 +164,13 @@ def start():
         data = {"result": "1"}
 
     # send back to server B and third party
-    requests.post("http://localhost:5001/end", json=data)
+    requests.post("https://bob-ir8f.onrender.com/end", json=data)
     return data
 
 
 @app.route("/", methods=["GET"])
 def index():
-    return "Hello, World!"
+    return "Hello, Alice!"
 
 if __name__ == "__main__":
     alice_ready = False
