@@ -104,7 +104,7 @@ class Alice(Participant):
                 return candidate
 
 
-@app.route("/health", methods=["GET"])
+@app.route("/health_random", methods=["GET"])
 def health():
     i = 0
     while not alice_ready:
