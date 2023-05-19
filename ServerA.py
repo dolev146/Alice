@@ -168,6 +168,10 @@ def start():
     return data
 
 
+@app.route("/", methods=["GET"])
+def index():
+    return "Hello, World!"
+
 if __name__ == "__main__":
     alice_ready = False
     app.run()
