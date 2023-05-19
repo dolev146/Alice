@@ -182,6 +182,6 @@ def run():
 if __name__ == "__main__":
     run()
 
-# gunicorn -w 'your_python_file:run'
+# gunicorn -w 'ServerA.py:run'
 
 
