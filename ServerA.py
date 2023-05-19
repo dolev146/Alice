@@ -168,20 +168,11 @@ def start():
     return data
 
 
-# if __name__ == "__main__":
-#     alice_ready = False
-#     app.run()
-
-
-def run():
-    global alice_ready
+if __name__ == "__main__":
     alice_ready = False
     app.run()
 
 
-if __name__ == "__main__":
-    run()
 
-# gunicorn -w 'ServerA.py:run'
 
 
